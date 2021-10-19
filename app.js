@@ -3,7 +3,7 @@ const _port = process.env.PORT || 3000;
 const cors = require('cors');
 const autoIncrement = require('mongoose-auto-increment');
 const { createConnection } = require('mongoose');
-const connection_URI = "mongodb+srv://Joelson:Joe7MongoDB@initial-cluster.vie6y.mongodb.net/IMS-Database?retryWrites=true&w=majority";
+const connection_URI = " mongodb+srv://Joelson:Joe7MongoDB@initial-cluster.vie6y.mongodb.net/IMS-Database?retryWrites=true&w=majority";
 require('./Configuration/config');
 require('./Database/mongoose');
 
@@ -36,3 +36,8 @@ app.listen(_port, (err) => {
 // Express Routing Table
 // http://localhost:3000/products/
 app.use('/products', require('./Routes/product'));
+
+
+//supplier
+// http://localhost:3000/suppliers/
+app.use('/api/suppliers', require('./Routes/supplier'));
