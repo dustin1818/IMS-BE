@@ -1,13 +1,26 @@
-const express = require('express');
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var morgan = require('morgan');
+
 const _port = process.env.PORT || 3000;
 const cors = require('cors');
 const autoIncrement = require('mongoose-auto-increment');
 const { createConnection } = require('mongoose');
-const connection_URI = " mongodb+srv://Joelson:Joe7MongoDB@initial-cluster.vie6y.mongodb.net/IMS-Database?retryWrites=true&w=majority";
+const connection_URI = "mongodb+srv://User:user123@cluster0.syl2u.mongodb.net/NewUserRegistration?retryWrites=true&w=majority";
 require('./Configuration/config');
 require('./Database/mongoose');
 
-const app = express();
+//import 
+var authenticate = require('./Middlewares/authenticate');
+
+
+app.use(morgan('dev'));
+
+//body-parsar
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 // database URI connection required by autoIncrement
 const connection = createConnection(connection_URI);
@@ -34,10 +47,23 @@ app.listen(_port, (err) => {
 });
 
 // Express Routing Table
-// http://localhost:3000/products/
+// http://localhost:3000/products/ -- products CRUD
 app.use('/products', require('./Routes/product'));
 
 
-//supplier
-// http://localhost:3000/suppliers/
+// http://localhost:3000/suppliers/ -- supplier CRUD
 app.use('/api/suppliers', require('./Routes/supplier'));
+
+// http://localhost:3000/auth/ -- user registration
+app.use('/auth', require('./Controller/auth'));
+
+// http://localhost:3000/user/ -- for profile
+app.use('/user', authenticate, require('./Controller/user'));
+
+
+
+
+
+
+
+
