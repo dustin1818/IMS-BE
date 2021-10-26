@@ -6,7 +6,6 @@ exports.createSupplier= async (req, res) => {
     try {
         let supplier;
 
-        // Creamos nuestro producto
         supplier = new Supplier(req.body);
 
         await supplier.save();
@@ -17,6 +16,7 @@ exports.createSupplier= async (req, res) => {
         res.status(500).send('There is an error');
     }
 }
+
 
 exports.getSupplier = async (req, res) => {
 
