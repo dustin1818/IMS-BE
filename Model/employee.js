@@ -1,5 +1,4 @@
-const { truncate } = require('lodash');
-const mongoose = require('mongoose)');
+const mongoose = require('mongoose');
 
 const EmployeeSchema = mongoose.Schema({
 
@@ -17,10 +16,6 @@ const EmployeeSchema = mongoose.Schema({
     },
     department: {
         type: String,
-        required: true
-    },
-    phone_no: {
-        type: Number,
         required: true
     },
     CreatedAt: {
