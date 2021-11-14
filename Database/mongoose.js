@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 require('dotenv/config');
 
-const connection_URI = "mongodb+srv://Joelson:Joe7MongoDB@initial-cluster.vie6y.mongodb.net/IMS-Database?retryWrites=true&w=majority";
+const connection_URI = "mongodb+srv://User:user123@cluster0.syl2u.mongodb.net/NewUserRegistration?retryWrites=true&w=majority";
 
 const connectionParams = {
     useNewUrlParser: true,

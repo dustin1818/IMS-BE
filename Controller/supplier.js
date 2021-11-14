@@ -1,6 +1,5 @@
 const Supplier = require('../Model/supplier')
 
-
 exports.createSupplier= async (req, res) => {
 
     try {
