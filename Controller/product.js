@@ -5,7 +5,6 @@ const axios = require ("axios");
 
 // Mongoose Schema
 const Product = require('../Model/product.model');
-const { aggregate } = require('../Model/product.model');
 
 //add Product
 exports.addProduct = async (req, res, next) => {
@@ -222,10 +221,12 @@ exports.integrationAnalytics = async (req,res) => {
             November: 0,
             December: 0,
         };
-        Object.values(aggregateByMonth).map((month, key) = {
-            countMap:[`${moment().month(key).format("MMMM")}`] = month.length,
+        Object.values(aggregateByMonth).map((month, key) => {
+            countMap[`${moment().month(key).format("MMMM")}`] = month.length;
         });
-        res.send({count: countMap, data: aggregateByMonth});
+        
+        res.send({ count: countMap, data: aggregateByMonth });
+
     } catch (err){
         console.log(err)
         res.status(502).send({
@@ -233,4 +234,4 @@ exports.integrationAnalytics = async (req,res) => {
             message: "Sorry there seems to be an error.",
         });
     }
-};
+}
