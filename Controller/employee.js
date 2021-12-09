@@ -31,7 +31,7 @@ exports.getEmployee = async(req, res) => {
 exports.addEmployee = async (req, res) => {
 
     try{
-        const { employee_no, name, phone_no } = req.body;
+        const { employee_no, name, role, department } = req.body;
         let employee = await Employee.findById(req.params.id);
 
         if(!employee) {
@@ -40,7 +40,8 @@ exports.addEmployee = async (req, res) => {
 
         employee.employee_no = employee_no;
         employee.name = name;
-        employee.phone_no = phone_no;
+        employee.role = role;
+        employee.department = department;
 
         employee = await Employee.findOneAndUpdate({ _id: req.params.id}, employee, {new:true})
         res.json(employee);
@@ -75,7 +76,7 @@ exports.removeEmployee = async (req,res) => {
         if(!employee) {
             res.status(404).json({ msg: 'No existing employee'})
         }
-        await Employee.findOneAndUpdate({_id: req.params.id})
+        await Employee.findOneAndRemove({_id: req.params.id})
         res.json({msg: 'Employee removed'});
     }
     catch (error) {

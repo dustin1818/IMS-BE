@@ -20,4 +20,16 @@ router.post('/', productController.addProduct);
 // HTTP Request Route: PUT - http://localhost:3000/product/id
 router.delete('/:id', productController.deleteProduct);
 
+// HTTP Request Route: GET - http://localhost:3000/products/integration/list/
+router.get('/integration/list', productController.integrationProductList);
+
+// HTTP Request Route: GET - http://localhost:3000/products/integration/query?id=VALUE
+router.get('/integration/query', productController.integrationProductQuery);
+
+//HTTP Request Route: GET - http://localhost:3000/products/integration/query?id=VALUE
+router.get('/integration/query', productController.integrationProductDeplete);
+
+//HTTPRequest: GET - http://localhost:3000/products/integration/analytics
+router.get('/integration/analytics', productController.integrationAnalytics);
+
 module.exports = router;

@@ -34,16 +34,6 @@ const productSchema = new Schema({
         type: Number,
         required: true
     },
-
-    description: {
-        type: String,
-        required: true
-    },
-
-    manufacture_name: {
-        type: String,
-        required: true
-    }
 },
 {
     // timestamps: createdAt and updatedAt fields

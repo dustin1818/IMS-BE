@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/dustin1818/IMS-BE#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -24,7 +26,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-jwt": "^6.1.0",
-    "fs": "*",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
@@ -35,6 +37,7 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.3",
     "nodemailer": "^6.7.0",
+    "nodemon": "^2.0.15",
     "passport": "^0.5.0",
     "password-hash": "^1.2.2",
     "randomstring": "^1.2.1"

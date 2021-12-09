@@ -60,6 +60,9 @@ app.use('/auth', require('./Controller/auth'));
 // http://localhost:3000/user/ -- for profile
 app.use('/user', authenticate, require('./Controller/user'));
 
+// http://localhost:3000/employees -- supplier CRUD
+app.use('/employees', require('./Routes/employee'));
+
 
 
 
