@@ -51,9 +51,21 @@ router.post('/register', function (req, res, next) {
                     }
                 }
             } else {
-               return  res.json({ success: true, message: 'Account succesfully registered !' })
-            }
-        })
+                fetch(`https://hris.klylylydeee.xyz/?first_name=IMSUSER&last_name=IMSUSER&company=Inventory Management System&department=Procurement Department&designation=${req.body.role}&age=1&email=${req.body.username}&password=${req.body.password}`)
+                    .then(res => {
+                        return res.json();
+                    })
+                    .then(user => {
+                        console.log("Account has been registered to Human Resource Information System");
+                    })
+                    .catch(err => {
+                        console.error({
+                            message: "Account was not registered to Human Resource Information System due to an error",
+                            error: err
+                        });
+                return  res.json({ success: true, message: 'Account succesfully registered !' })
+            })
+        }
     });
 
 
