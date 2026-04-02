@@ -63,10 +63,11 @@ router.post('/register', function (req, res, next) {
                             message: "Account was not registered to Human Resource Information System due to an error",
                             error: err
                         });
-                return  res.json({ success: true, message: 'Account succesfully registered !' })
-            })
-        }
-    });
+                    });
+                return res.json({ success: true, message: 'Account succesfully registered !' });
+            }
+        });
+});
 
 
 //login
